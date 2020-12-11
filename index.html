@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<link href="./assets/images/32x32.png" rel="shortcut icon" type="image/x-icon">
+	<link href="./assets/images/256x256.png" rel="apple-touch-icon">
+
+	<link rel="stylesheet" href="./assets/styles/chart.min.css">
+	<link rel="stylesheet" href="./assets/styles/main.css" media="all">
+	<title>Dashboard</title>
+</head>
+<body>
+
+<!-- header -->
+<header class="header">
+	<div class="container">
+
+		<!-- logo -->
+		<div class="header-top">
+			<div class="header-logo">
+				<svg width="118" height="94" viewBox="0 0 118 94" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M77.5545 6.7056C86.8521 6.7056 94.4 45.7845 94.4 94H107.889C107.889 42.0772 94.2983 0 77.5545 0C68.0128 0 59.5086 12.6414 53.9545 32.4341C48.38 12.6414 39.8759 0 30.3341 0C13.5903 0 0 42.0772 0 94H13.4886C13.4886 45.8047 21.0366 6.72586 30.3341 6.72586C39.6521 6.72586 47.2 42.8065 47.2 87.2944H60.6886C60.6886 42.7862 68.2366 6.7056 77.5545 6.7056Z" fill="#FFC300"/>
+					<path d="M114.643 87.2741C116.474 87.2741 118 88.7125 118 90.6168C118 92.5414 116.474 93.9797 114.643 93.9797C112.812 93.9797 111.266 92.5414 111.266 90.6168C111.245 88.7328 112.792 87.2741 114.643 87.2741ZM114.643 93.5138C116.189 93.5138 117.39 92.278 117.39 90.6371C117.39 89.0164 116.189 87.7806 114.643 87.7806C113.077 87.7806 111.876 89.0164 111.876 90.6371C111.876 92.2578 113.077 93.5138 114.643 93.5138ZM113.321 88.672H114.847C115.782 88.672 116.21 89.0366 116.21 89.7862C116.21 90.4953 115.762 90.7991 115.192 90.8599L116.311 92.6022H115.66L114.602 90.9207H113.931V92.6022H113.321V88.672ZM113.931 90.4142H114.562C115.091 90.4142 115.599 90.394 115.599 89.766C115.599 89.2392 115.152 89.1582 114.745 89.1582H113.931V90.4142Z" fill="#FFC300"/>
+				</svg>
+			</div>
+			<div class="header-lines">
+				<div class="header-line bg-attention"></div>
+				<div class="header-line bg-success"></div>
+				<div class="header-line bg-warning"></div>
+			</div>
+		</div>
+
+		<!-- menu -->
+		<div class="header-menu-wrapper">
+			<div class="header-menu-block menu-location">
+				<button class="icon-location" data-modal="map">
+					<svg preserveAspectRatio="xMidYMid" width="72" height="96" viewBox="0 0 36 48">
+						<path d="M18.646,47.763 C18.459,47.921 18.230,48.000 18.000,48.000 C17.770,48.000 17.541,47.921 17.354,47.763 C16.647,47.164 -0.000,32.927 -0.000,17.818 C-0.000,7.993 8.075,-0.000 18.000,-0.000 C27.925,-0.000 36.000,7.993 36.000,17.818 C36.000,32.927 19.353,47.164 18.646,47.763 ZM18.000,1.999 C9.178,1.999 2.000,9.095 2.000,17.818 C2.000,30.388 14.932,42.878 18.000,45.663 C21.066,42.877 34.000,30.377 34.000,17.818 C34.000,9.095 26.822,1.999 18.000,1.999 ZM18.000,27.000 C13.037,27.000 9.000,22.962 9.000,17.999 C9.000,13.037 13.037,8.999 18.000,8.999 C22.963,8.999 27.000,13.037 27.000,17.999 C27.000,22.962 22.963,27.000 18.000,27.000 ZM18.000,10.999 C14.141,10.999 11.000,14.139 11.000,17.999 C11.000,21.860 14.141,24.999 18.000,24.999 C21.859,24.999 25.000,21.860 25.000,17.999 C25.000,14.139 21.859,10.999 18.000,10.999 Z" class="cls-1"/>
+					</svg>
+				</button>
+				<button class="button menu-item-title menu-item-dropdown no-active">Restaurant</button>
+				<div class="menu-dropdown">
+					<a href="#">Item-1</a>
+					<a href="#">Item-2</a>
+					<a href="#">Item-3</a>
+				</div>
+			</div>
+			<div class="header-menu-block menu-timer">
+				<button class="button menu-item-title menu-item-dropdown no-active">
+				Zeitraum
+			</button>
+				<div class="menu-dropdown">
+					<div class="pick-date">
+						<label for="date-start"> Start
+							<input type="date" id="date-start">
+						</label>
+						<label for="date-end"> End
+							<input type="date" id="date-end">
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="header-menu-block menu-graph">
+				<button class="menu-item-title">Vergleichsdaten</button>
+			</div>
+			<div class="header-menu-block menu-download">
+				<button class="menu-item-title">Download CSV</button>
+			</div>
+			<div class="header-menu-block menu-user">
+				<button class="menu-item-title">Hans Stark</button>
+				<div class="menu-item-user-description">Analyst</div>
+				<button class="icon-out">Out</button>
+			</div>
+		</div>
+
+	</div>
+</header>
+
+<main>
+	<section class="s1">
+		<div class="container">
+			<!-- status row -->
+			<div class="top-status-row">
+
+				<div class="status-row-logo">
+					ÜBERSICHT
+				</div>
+
+				<div class="top-status-row-items">
+					<div class="top-status-row-item">Aktueller Rang: <span>3</span></div>
+					<div class="top-status-row-item">Autos YTD: <span>5.000</span></div>
+					<div class="top-status-row-item">Ø OEPE YTD: <span>119s</span></div>
+					<div class="top-status-row-item">Ø Deutschland YTD: <span>119s</span></div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<section class="s2">
+		<div class="container">
+
+			<div class="dashboards-wrapper">
+
+				<!-- dashboard main -->
+				<div class="dashboard-main">
+
+					<!-- switch metric -->
+					<div class="switch-metric">
+						<button class="switch-metric-arrow arrow-left">Left</button>
+						<div class="switch-metric-title">AUSWERTUNG ALLE METRIKS</div>
+						<button class="switch-metric-arrow arrow-right">Right</button>
+					</div>
+
+					<!-- main chart top -->
+					<!-- title -->
+					<div class="dashboard-main-title-wrap">
+						<div class="dashboard-main-title"> ZOOM ØOEPE Stunde <date>04.12.2020</date> </div>
+					</div>
+
+					<!-- switch interval -->
+					<div class="switch-interval-wrapper">
+						<div class="switch-interval-title"> Ø OEPE </div>
+						<div class="switch-interval active">Tag</div>
+						<div class="switch-interval">Woche</div>
+						<div class="switch-interval">Monat</div>
+						<div class="switch-interval">Jahr</div>
+					</div>
+
+					<div class="chart-container chart-container-main">
+			 			<canvas id="chart-top" width="300" height="200"></canvas>
+						<div class="hidden-bars"></div>
+						<div class="chart-top-description">
+							<div class="description">
+								<div class="color green"></div>
+								<div class="title">erreicht</div>
+							</div>
+							<div class="description">
+								<div class="color red"></div>
+								<div class="title">nicht erreicht</div>
+							</div>
+							<div class="description">
+								<div class="color gray"></div>
+								<div class="title">Ø Deutschland</div>
+							</div>
+							<div class="description">
+								<div class="color blue"></div>
+								<div class="title">Verzeitraum</div>
+							</div>
+						</div>
+					</div>
+
+
+					<!-- main chart bottom -->
+					<div class="main-chart-bottom no-active">
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> Ø OEPE </div>
+						</div>
+
+						<div class="chart-container chart-container-main">
+							<canvas id="chart-bottom" width="300" height="200"></canvas>
+						</div>
+					</div>
+
+					<!-- bottom day info -->
+					<div class="day-info">
+						<div class="date">12.12.2020</div>
+						<div class="time">11:00</div>
+						<div class="weather"><div class="weather-ico thermometer"></div>+10</div>
+					</div>
+				</div> <!-- //dashboard-main! -->
+
+				<!-- dashboard aside right -->
+				<div class="dashboard-aside">
+
+					<!-- graph 1 -->
+					<div class="aside-graph aside-graph-on">
+						<!-- toggle -->
+						<div class="toggle-wrapper">
+							<div class="toggle-graph">
+								<div class="toggle-handler"></div>
+							</div>
+							<div class="toggle-title">Oepe</div>
+						</div>
+
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> Ø OEPE </div>
+							<div class="switch-interval active">Tag</div>
+							<div class="switch-interval">Woche</div>
+							<div class="switch-interval">Monat</div>
+							<div class="switch-interval">Jahr</div>
+						</div>
+
+						<!-- graph -->
+						<div class="graph-wrapper">
+							<canvas id="chart-1" width="300" height="300"></canvas>
+						</div>
+
+						<!-- overlay -->
+						<div class="graph-overlay"> </div>
+					</div>
+
+					<!-- graph 2 -->
+					<div class="aside-graph aside-graph-on">
+						<!-- toggle -->
+						<div class="toggle-wrapper">
+							<div class="toggle-graph">
+								<div class="toggle-handler"></div>
+							</div>
+							<div class="toggle-title">PRESENT</div>
+						</div>
+
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> PRESENT </div>
+							<div class="switch-interval active">Tag</div>
+							<div class="switch-interval">Woche</div>
+							<div class="switch-interval">Monat</div>
+							<div class="switch-interval">Jahr</div>
+						</div>
+
+						<!-- graph -->
+						<div class="graph-wrapper">
+							<canvas id="chart-2" width="100%" height="300"></canvas>
+						</div>
+
+						<!-- overlay -->
+						<div class="graph-overlay"></div>
+					</div>
+
+					<!-- graph 3 -->
+					<div class="aside-graph aside-graph-on">
+						<!-- toggle -->
+						<div class="toggle-wrapper">
+							<div class="toggle-graph">
+								<div class="toggle-handler"></div>
+							</div>
+							<div class="toggle-title">Cash</div>
+						</div>
+
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> Cash </div>
+							<div class="switch-interval active">Tag</div>
+							<div class="switch-interval">Woche</div>
+							<div class="switch-interval">Monat</div>
+							<div class="switch-interval">Jahr</div>
+						</div>
+
+						<!-- graph -->
+						<div class="graph-wrapper">
+							<canvas id="chart-3" width="100%" height="300"></canvas>
+						</div>
+
+						<!-- overlay -->
+						<div class="graph-overlay"></div>
+					</div>
+
+					<!-- graph 4 -->
+					<div class="aside-graph aside-graph-on">
+						<!-- toggle -->
+						<div class="toggle-wrapper">
+							<div class="toggle-graph">
+								<div class="toggle-handler"></div>
+							</div>
+							<div class="toggle-title">OECB</div>
+						</div>
+
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> OECB </div>
+							<div class="switch-interval active">Tag</div>
+							<div class="switch-interval">Woche</div>
+							<div class="switch-interval">Monat</div>
+							<div class="switch-interval">Jahr</div>
+						</div>
+
+						<!-- graph -->
+						<div class="graph-wrapper">
+							<canvas id="chart-4" width="100%" height="300"></canvas>
+						</div>
+
+						<!-- overlay -->
+						<div class="graph-overlay"></div>
+					</div>
+
+					<!-- graph 5 -->
+					<div class="aside-graph aside-graph-on">
+						<!-- toggle -->
+						<div class="toggle-wrapper">
+							<div class="toggle-graph">
+								<div class="toggle-handler"></div>
+							</div>
+							<div class="toggle-title">OT</div>
+						</div>
+
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> OT </div>
+							<div class="switch-interval active">Tag</div>
+							<div class="switch-interval">Woche</div>
+							<div class="switch-interval">Monat</div>
+							<div class="switch-interval">Jahr</div>
+						</div>
+
+						<!-- graph -->
+						<div class="graph-wrapper">
+							<canvas id="chart-5" width="100%" height="300"></canvas>
+						</div>
+
+						<!-- overlay -->
+						<div class="graph-overlay"></div>
+					</div>
+
+					<!-- graph 6 -->
+					<div class="aside-graph aside-graph-on">
+						<!-- toggle -->
+						<div class="toggle-wrapper">
+							<div class="toggle-graph">
+								<div class="toggle-handler"></div>
+							</div>
+							<div class="toggle-title">TET</div>
+						</div>
+
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> TET </div>
+							<div class="switch-interval active">Tag</div>
+							<div class="switch-interval">Woche</div>
+							<div class="switch-interval">Monat</div>
+							<div class="switch-interval">Jahr</div>
+						</div>
+
+						<!-- graph -->
+						<div class="graph-wrapper">
+							<canvas id="chart-6" width="100%" height="300"></canvas>
+						</div>
+
+						<!-- overlay -->
+						<div class="graph-overlay"></div>
+					</div>
+
+					<!-- graph 7 -->
+					<div class="aside-graph aside-graph-on">
+						<!-- toggle -->
+						<div class="toggle-wrapper">
+							<div class="toggle-graph">
+								<div class="toggle-handler"></div>
+							</div>
+							<div class="toggle-title">GÄSTE AUF PARK</div>
+						</div>
+
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> GÄSTE AUF PARK </div>
+							<div class="switch-interval active">Tag</div>
+							<div class="switch-interval">Woche</div>
+							<div class="switch-interval">Monat</div>
+							<div class="switch-interval">Jahr</div>
+						</div>
+
+						<!-- graph -->
+						<div class="graph-wrapper">
+							<canvas id="chart-7" width="100%" height="300"></canvas>
+						</div>
+
+						<!-- overlay -->
+						<div class="graph-overlay"></div>
+					</div>
+
+					<!-- graph 8 -->
+					<div class="aside-graph aside-graph-on">
+						<!-- toggle -->
+						<div class="toggle-wrapper">
+							<div class="toggle-graph">
+								<div class="toggle-handler"></div>
+							</div>
+							<div class="toggle-title">AUTOS BEDIENT</div>
+						</div>
+
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> AUTOS BEDIENT </div>
+							<div class="switch-interval active">Tag</div>
+							<div class="switch-interval">Woche</div>
+							<div class="switch-interval">Monat</div>
+							<div class="switch-interval">Jahr</div>
+						</div>
+
+						<!-- graph -->
+						<div class="graph-wrapper">
+							<canvas id="chart-8" width="100%" height="300"></canvas>
+						</div>
+
+						<!-- overlay -->
+						<div class="graph-overlay"></div>
+					</div>
+
+					<!-- graph 9 -->
+					<div class="aside-graph aside-graph-on">
+						<!-- toggle -->
+						<div class="toggle-wrapper">
+							<div class="toggle-graph">
+								<div class="toggle-handler"></div>
+							</div>
+							<div class="toggle-title">WIEDERKEHRENDE AUTOS</div>
+						</div>
+
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> WIEDERKEHRENDE AUTOS</div>
+							<div class="switch-interval active">Tag</div>
+							<div class="switch-interval">Woche</div>
+							<div class="switch-interval">Monat</div>
+							<div class="switch-interval">Jahr</div>
+						</div>
+
+						<!-- graph -->
+						<div class="graph-wrapper">
+							<canvas id="chart-9" width="100%" height="300"></canvas>
+						</div>
+
+						<!-- overlay -->
+						<div class="graph-overlay"></div>
+					</div>
+
+					<!-- graph 10 -->
+					<div class="aside-graph aside-graph-on">
+						<!-- toggle -->
+						<div class="toggle-wrapper">
+							<div class="toggle-graph">
+								<div class="toggle-handler"></div>
+							</div>
+							<div class="toggle-title">HERKUNFTSLAND AUTOS</div>
+						</div>
+
+						<!-- switch interval -->
+						<div class="switch-interval-wrapper">
+							<div class="switch-interval-title"> HERKUNFTSLAND AUTOS</div>
+						</div>
+
+						<!-- graph -->
+						<div class="graph-wrapper">
+							<canvas id="chart-10" width="100%" height="300"></canvas>
+						</div>
+
+						<!-- overlay -->
+						<div class="graph-overlay"></div>
+					</div>
+				</div> <!-- //dashboard-aside -->
+
+			</div>
+		</div>
+	</section>
+</main>
+
+<aside>
+
+</aside>
+
+<footer class="footer">McDonald's Dashboard &copy;</footer>
+
+<!-- modal -->
+<div class="modal modal-map">
+	<div class="modal-container">
+		<div class="modal-content">
+			<div class="modal-title">Modal title</div>
+			<div class="modal-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, voluptates?</div>
+			<div class="modal-map"></div>
+		</div>
+		<div class="modal-close">&times;</div>
+	</div>
+</div>
+
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+<script type="module" src="./assets/scripts/chart.bundle.min.js"> </script>
+<script type="module" src="./assets/scripts/main.js"> </script>
+<script type="module" src="./assets/scripts/graph.js"> </script>
+
+</body>
+</html>

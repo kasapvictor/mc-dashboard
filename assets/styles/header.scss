@@ -1,0 +1,202 @@
+/* header */
+.header {
+  padding-top: 30px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-logo {
+  width: 130px;
+}
+
+.header-lines {
+  width: 50vw;
+  .header-line {
+    width: 100%;
+    height: 8px;
+    margin-left: auto;
+    margin-bottom: 10px;
+    background: $color-attention;
+    &:nth-child(2) {
+      width: 90%;
+      background: $color-success;
+    }
+    &:nth-child(3) {
+      width: 80%;
+      background: $color-warning;
+    }
+  }
+
+}
+
+.header-menu-wrapper {
+  display: flex;
+  padding: 15px 0;
+  border-bottom: 2px solid $color-attention;
+
+  .header-menu-block {
+    position: relative;
+    margin-right: 40px;
+    padding-left: 40px;
+    opacity: .9;
+    transition: all .2s ease;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .menu-location {
+    display: flex;
+    padding-left: 0;
+    .icon-location {
+      width: 20px;
+      height: 40px;
+      margin-right: 15px;
+      svg {
+        width: 20px;
+        height: 40px;
+        path {
+          transition: all .3s ease;
+        }
+        &:hover path {
+          fill: $color-success;
+        }
+      }
+    }
+  }
+
+  .menu-timer {
+    background: url('../images/time.svg') no-repeat 0 50%;
+    background-size: 1.5rem;
+  }
+
+  .menu-graph {
+    background: url('../images/statistics.svg') no-repeat 0 50%;
+    background-size: 1.5rem;
+  }
+
+  .menu-download {
+    padding-left: 38px;
+    background: url('../images/download.svg') no-repeat 0 50%;
+    background-size: 1.3rem;
+  }
+
+  .menu-user {
+    /* если нужна будет иконка пользователя, то раскоментировать стили */
+    display: flex;
+    margin: 0 0 0 auto;
+    //padding-left: 38px;
+    padding-right: 0;
+    position: relative;
+    //background: url('../images/user.svg') no-repeat 0 40%;
+    //background-size: 1.5rem;
+    .menu-item-user-description {
+      position: absolute;
+      top: -15px;
+    }
+    .icon-out {
+      width: 30px;
+      height: 30px;
+      margin-left: 15px;
+      background: url('../images/out.svg') no-repeat 0 100%;
+      background-size: 1.5rem;
+      font-size: 0;
+    }
+  }
+
+  .menu-item-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .button {
+    padding-right: 25px;
+    background: url('../images/arrow-down.svg') no-repeat 100% 60%;
+    background-size: 15px;
+  }
+
+  .info-location {
+    border: 1px solid $color-main;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 6px;
+  }
+
+  .menu-dropdown {
+    min-width: 200px;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 20px 15px;
+    background: #fff;
+    border: 1px solid $color-attention;
+    opacity: 0;
+    transform: translate(0, 100px);
+    transition: all .5s ease-in-out;
+
+    a {
+      display: block;
+      margin-bottom: 10px;
+      transition: all .2s ease;
+
+      &:hover {
+        color: $color-attention;
+      }
+    }
+  }
+
+  .menu-item-title.active {
+    color: $color-attention;
+  }
+
+  .no-active ~ .menu-dropdown {
+    animation: hideDropDownMenu .3s ease-in-out forwards;
+  }
+
+  .active ~ .menu-dropdown {
+    animation: showDropDownMenu .3s ease-in-out forwards;
+  }
+
+  .pick-date {
+    display: flex;
+
+    label {
+      width: 50%;
+      &:first-child {
+        margin-right: 20px;
+      }
+    }
+
+
+  }
+}
+
+@keyframes showDropDownMenu {
+  from {
+    display: none;
+    opacity: 0;
+    transform: translate(0, 100px);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0px);
+    visibility: visible;
+  }
+}
+
+@keyframes hideDropDownMenu {
+  from {
+    opacity: 1;
+    transform: translate(0, 0);
+    visibility: visible
+  }
+  to {
+    opacity: 0;
+    transform: translate(0, 100px);
+    visibility: hidden;
+  }
+}
